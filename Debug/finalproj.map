@@ -1,0 +1,505 @@
+******************************************************************************
+                  TI ARM Linker PC v18.12.1                    
+******************************************************************************
+>> Linked Wed Jun  5 16:47:59 2019
+
+OUTPUT FILE NAME:   <finalproj.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00001a55
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  MAIN                  00000000   00040000  00001c8b  0003e375  R  X
+  INFO                  00200000   00004000  00000000  00004000  R  X
+  SRAM_CODE             01000000   00010000  00000232  0000fdce  RW X
+  SRAM_DATA             20000000   00010000  00000232  0000fdce  RW  
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00001c90   00001c90    r-x
+  00000000    00000000    000000e4   000000e4    r-- .intvecs
+  000000e4    000000e4    00001b4a   00001b4a    r-x .text
+  00001c2e    00001c2e    0000000d   0000000d    r-- .const
+  00001c40    00001c40    00000050   00000050    r-- .cinit
+20000000    20000000    00000035   00000000    rw-
+  20000000    20000000    0000002d   00000000    rw- .data
+  20000030    20000030    00000005   00000000    rw- .bss
+2000fe00    2000fe00    00000200   00000000    rw-
+  2000fe00    2000fe00    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    000000e4     
+                  00000000    000000e4     startup_msp432p401r_ccs.obj (.intvecs:retain)
+
+.text      0    000000e4    00001b4a     
+                  000000e4    00000b60     maze_term.obj (.text)
+                  00000c44    00000334     system_msp432p401r.obj (.text)
+                  00000f78    000001c4     i2c.obj (.text)
+                  0000113c    00000168     delay.obj (.text)
+                  000012a4    00000162     bno055.obj (.text)
+                  00001406    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : div0.asm.obj (.text)
+                  00001408    00000130     main.obj (.text)
+                  00001538    0000012c     uart.obj (.text)
+                  00001664    000000cc     my_msp.obj (.text:init_all_pins)
+                  00001730    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  000017cc    00000098     uart.obj (.text:uart_init)
+                  00001864    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  000018cc    0000004a     maze_term.obj (.text:draw_vertical)
+                  00001916    00000002     --HOLE-- [fill = 0]
+                  00001918    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  0000195c    00000040                                   : u_divt2.asm.obj (.text)
+                  0000199c    0000003e     maze_term.obj (.text:draw_horizontal)
+                  000019da    00000002     --HOLE-- [fill = 0]
+                  000019dc    0000003c     led.obj (.text:led_init)
+                  00001a18    0000003c     led.obj (.text:rgb_init)
+                  00001a54    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00001a88    00000034     my_msp.obj (.text:init)
+                  00001abc    0000002c     uart.obj (.text:uart_write)
+                  00001ae8    00000020     delay.obj (.text:delay_ms)
+                  00001b08    00000020     delay.obj (.text:delay_one_ms)
+                  00001b28    00000020     maze_term.obj (.text:move_down)
+                  00001b48    00000020     maze_term.obj (.text:move_left)
+                  00001b68    00000020     led.obj (.text:rgb_clear)
+                  00001b88    00000020     led.obj (.text:rgb_set)
+                  00001ba8    0000001c     maze_term.obj (.text:hide_cursor)
+                  00001bc4    0000001c     maze_term.obj (.text:move_home)
+                  00001be0    00000018     maze_term.obj (.text:term_clear_screen)
+                  00001bf8    00000012     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  00001c0a    0000000e                                   : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  00001c18    0000000e     startup_msp432p401r_ccs.obj (.text)
+                  00001c26    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00001c2a    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    00001c2e    0000000d     
+                  00001c2e    00000006     maze_term.obj (.const:.string:$P$T1$2)
+                  00001c34    00000004     maze_term.obj (.const:.string:$P$T2$3)
+                  00001c38    00000003     maze_term.obj (.const:.string:$P$T0$1)
+
+.cinit     0    00001c40    00000050     
+                  00001c40    00000029     (.cinit..data.load) [load image, compression = lzss]
+                  00001c69    00000003     --HOLE-- [fill = 0]
+                  00001c6c    0000000c     (__TI_handler_table)
+                  00001c78    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00001c80    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.binit     0    00000000    00000000     
+
+.data      0    20000000    0000002d     UNINITIALIZED
+                  20000000    00000011     uart.obj (.data:str_uart_welcome)
+                  20000011    00000003     i2c.obj (.data:TXData)
+                  20000014    00000010     maze_term.obj (.data)
+                  20000024    00000004     system_msp432p401r.obj (.data)
+                  20000028    00000003     i2c.obj (.data)
+                  2000002b    00000002     maze_term.obj (.data:com)
+
+.bss       0    20000030    00000005     UNINITIALIZED
+                  20000030    00000004     (.common:has_new)
+                  20000034    00000001     (.common:new_char)
+
+.stack     0    2000fe00    00000200     UNINITIALIZED
+                  2000fe00    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  2000fe04    000001fc     --HOLE--
+
+MODULE SUMMARY
+
+       Module                        code   ro data   rw data
+       ------                        ----   -------   -------
+    .\
+       maze_term.obj                 3192   13        36     
+       system_msp432p401r.obj        820    0         8      
+       uart.obj                      496    0         34     
+       i2c.obj                       452    0         12     
+       delay.obj                     424    0         0      
+       bno055.obj                    354    0         0      
+       main.obj                      304    0         0      
+       my_msp.obj                    256    0         0      
+       startup_msp432p401r_ccs.obj   14     228       0      
+       led.obj                       184    0         0      
+       adc.obj                       0      0         10     
+    +--+-----------------------------+------+---------+---------+
+       Total:                        6496   241       100    
+                                                             
+    C:\ti\ccs900\ccs\tools\compiler\ti-cgt-arm_18.12.1.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.asm.obj             156    0         0      
+       copy_decompress_lzss.c.obj    104    0         0      
+       autoinit.c.obj                68     0         0      
+       u_divt2.asm.obj               64     0         0      
+       boot_cortex_m.c.obj           52     0         0      
+       copy_zero_init.c.obj          18     0         0      
+       copy_decompress_none.c.obj    14     0         0      
+       exit.c.obj                    4      0         0      
+       pre_init.c.obj                4      0         0      
+       div0.asm.obj                  2      0         0      
+    +--+-----------------------------+------+---------+---------+
+       Total:                        486    0         0      
+                                                             
+       Stack:                        0      0         1024   
+       Linker Generated:             0      77        0      
+    +--+-----------------------------+------+---------+---------+
+       Grand Total:                  6982   318       1124   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00001c80 records: 2, size/record: 8, table size: 16
+	.data: load addr=00001c40, load size=00000029 bytes, run addr=20000000, run size=0000002d bytes, compression=lzss
+	.bss: load addr=00001c78, load size=00000008 bytes, run addr=20000030, run size=00000005 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00001c6c records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+00001c25  ADC14_IRQHandler              
+00001c25  AES256_IRQHandler             
+00001c25  BusFault_Handler              
+00001c2b  C$$EXIT                       
+00001c25  COMP_E0_IRQHandler            
+00001c25  COMP_E1_IRQHandler            
+00001c25  CS_IRQHandler                 
+00001c25  DMA_ERR_IRQHandler            
+00001c25  DMA_INT0_IRQHandler           
+00001c25  DMA_INT1_IRQHandler           
+00001c25  DMA_INT2_IRQHandler           
+00001c25  DMA_INT3_IRQHandler           
+00001c25  DebugMon_Handler              
+00001c25  Default_Handler               
+000014f7  EUSCIA0_IRQHandler            
+000014f7  EUSCIA0_IRQHandler            
+00001c25  EUSCIA1_IRQHandler            
+00001c25  EUSCIA2_IRQHandler            
+00001c25  EUSCIA3_IRQHandler            
+000010d3  EUSCIB0_IRQHandler            
+000010d3  EUSCIB0_IRQHandler            
+00001c25  EUSCIB1_IRQHandler            
+00001c25  EUSCIB2_IRQHandler            
+00001c25  EUSCIB3_IRQHandler            
+00001c25  FLCTL_IRQHandler              
+00001c25  FPU_IRQHandler                
+00001c25  HardFault_Handler             
+00001c25  MemManage_Handler             
+00001c25  NMI_Handler                   
+00001c25  PCM_IRQHandler                
+00001c25  PORT1_IRQHandler              
+00001c25  PORT2_IRQHandler              
+00001c25  PORT3_IRQHandler              
+00001c25  PORT4_IRQHandler              
+00001c25  PORT5_IRQHandler              
+00001c25  PORT6_IRQHandler              
+00001c25  PSS_IRQHandler                
+00001c25  PendSV_Handler                
+00001c25  RTC_C_IRQHandler              
+20000028  RXData                        
+00001c19  Reset_Handler                 
+00001c25  SVC_Handler                   
+00001c25  SysTick_Handler               
+20000024  SystemCoreClock               
+00000c45  SystemCoreClockUpdate         
+00000ebd  SystemInit                    
+00001c25  T32_INT1_IRQHandler           
+00001c25  T32_INT2_IRQHandler           
+00001c25  T32_INTC_IRQHandler           
+00001c25  TA0_0_IRQHandler              
+00001c25  TA0_N_IRQHandler              
+00001c25  TA1_0_IRQHandler              
+00001c25  TA1_N_IRQHandler              
+00001c25  TA2_0_IRQHandler              
+00001c25  TA2_N_IRQHandler              
+00001c25  TA3_0_IRQHandler              
+00001c25  TA3_N_IRQHandler              
+20000011  TXData                        
+00001c25  UsageFault_Handler            
+4000480c  WDTCTL_SYM                    
+00001c25  WDT_A_IRQHandler              
+20010000  __STACK_END                   
+00000200  __STACK_SIZE                  
+00001c80  __TI_CINIT_Base               
+00001c90  __TI_CINIT_Limit              
+00001c6c  __TI_Handler_Table_Base       
+00001c78  __TI_Handler_Table_Limit      
+00001919  __TI_auto_init_nobinit_nopinit
+00001865  __TI_decompress_lzss          
+00001c0b  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+00001bf9  __TI_zero_init_nomemset       
+00001407  __aeabi_idiv0                 
+00001407  __aeabi_ldiv0                 
+00001731  __aeabi_memcpy                
+00001731  __aeabi_memcpy4               
+00001731  __aeabi_memcpy8               
+0000195d  __aeabi_uidiv                 
+0000195d  __aeabi_uidivmod              
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+2000fe00  __stack                       
+00001a55  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+00001c27  _system_pre_init              
+00001c2b  abort                         
+20000014  ball_x                        
+2000001c  ball_x_vel                    
+20000018  ball_y                        
+20000020  ball_y_vel                    
+ffffffff  binit                         
+000012a5  bno_init                      
+000012d1  bno_read                      
+00001309  bno_read_angles               
+000012a7  bno_write                     
+000006e9  check_border                  
+00000549  check_horz_wall               
+0000072f  check_maze1                   
+000007b3  check_maze2                   
+0000085f  check_maze3                   
+0000069d  check_trap                    
+00000355  check_vert_wall               
+00000401  check_wall_box                
+00000905  check_win                     
+2000002a  data_read                     
+20000029  data_written                  
+00001ae9  delay_ms                      
+00001b09  delay_one_ms                  
+0000199d  draw_horizontal               
+000001e9  draw_maze1                    
+0000023d  draw_maze2                    
+000002c1  draw_maze3                    
+000001ad  draw_trap                     
+000018cd  draw_vertical                 
+00000171  draw_win                      
+20000030  has_new                       
+00001ba9  hide_cursor                   
+00000f79  i2c_init                      
+00001087  i2c_read_byte                 
+00000fdd  i2c_set_txdata                
+00001009  i2c_write                     
+00001a89  init                          
+00001665  init_all_pins                 
+000011df  init_dco                      
+00000000  interruptVectors              
+000019dd  led_init                      
+00000a19  level_animation               
+00001409  main                          
+00000b17  maze1                         
+00000b33  maze2                         
+00000b4f  maze3                         
+00001731  memcpy                        
+000000e5  move_cursor                   
+00001b29  move_down                     
+00001bc5  move_home                     
+00001b49  move_left                     
+20000034  new_char                      
+00000ae9  paint_terminal                
+00000b6b  print_bits                    
+0000010d  print_border                  
+00000669  reset_ball                    
+00000ac5  restart_ball                  
+00001b69  rgb_clear                     
+00001a19  rgb_init                      
+00001b89  rgb_set                       
+00000335  set_ball_vels                 
+00001203  set_dco                       
+0000094d  start_animation               
+00001be1  term_clear_screen             
+000015b3  uart_get_int                  
+000017cd  uart_init                     
+00001abd  uart_write                    
+00001565  uart_write_int                
+000015a3  uart_write_nl                 
+00001539  uart_write_str                
+0000161b  uart_write_volts              
+000005e9  update_ball                   
+00000a73  win_animation                 
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  interruptVectors              
+000000e5  move_cursor                   
+0000010d  print_border                  
+00000171  draw_win                      
+000001ad  draw_trap                     
+000001e9  draw_maze1                    
+00000200  __STACK_SIZE                  
+0000023d  draw_maze2                    
+000002c1  draw_maze3                    
+00000335  set_ball_vels                 
+00000355  check_vert_wall               
+00000401  check_wall_box                
+00000549  check_horz_wall               
+000005e9  update_ball                   
+00000669  reset_ball                    
+0000069d  check_trap                    
+000006e9  check_border                  
+0000072f  check_maze1                   
+000007b3  check_maze2                   
+0000085f  check_maze3                   
+00000905  check_win                     
+0000094d  start_animation               
+00000a19  level_animation               
+00000a73  win_animation                 
+00000ac5  restart_ball                  
+00000ae9  paint_terminal                
+00000b17  maze1                         
+00000b33  maze2                         
+00000b4f  maze3                         
+00000b6b  print_bits                    
+00000c45  SystemCoreClockUpdate         
+00000ebd  SystemInit                    
+00000f79  i2c_init                      
+00000fdd  i2c_set_txdata                
+00001009  i2c_write                     
+00001087  i2c_read_byte                 
+000010d3  EUSCIB0_IRQHandler            
+000010d3  EUSCIB0_IRQHandler            
+000011df  init_dco                      
+00001203  set_dco                       
+000012a5  bno_init                      
+000012a7  bno_write                     
+000012d1  bno_read                      
+00001309  bno_read_angles               
+00001407  __aeabi_idiv0                 
+00001407  __aeabi_ldiv0                 
+00001409  main                          
+000014f7  EUSCIA0_IRQHandler            
+000014f7  EUSCIA0_IRQHandler            
+00001539  uart_write_str                
+00001565  uart_write_int                
+000015a3  uart_write_nl                 
+000015b3  uart_get_int                  
+0000161b  uart_write_volts              
+00001665  init_all_pins                 
+00001731  __aeabi_memcpy                
+00001731  __aeabi_memcpy4               
+00001731  __aeabi_memcpy8               
+00001731  memcpy                        
+000017cd  uart_init                     
+00001865  __TI_decompress_lzss          
+000018cd  draw_vertical                 
+00001919  __TI_auto_init_nobinit_nopinit
+0000195d  __aeabi_uidiv                 
+0000195d  __aeabi_uidivmod              
+0000199d  draw_horizontal               
+000019dd  led_init                      
+00001a19  rgb_init                      
+00001a55  _c_int00_noargs               
+00001a89  init                          
+00001abd  uart_write                    
+00001ae9  delay_ms                      
+00001b09  delay_one_ms                  
+00001b29  move_down                     
+00001b49  move_left                     
+00001b69  rgb_clear                     
+00001b89  rgb_set                       
+00001ba9  hide_cursor                   
+00001bc5  move_home                     
+00001be1  term_clear_screen             
+00001bf9  __TI_zero_init_nomemset       
+00001c0b  __TI_decompress_none          
+00001c19  Reset_Handler                 
+00001c25  ADC14_IRQHandler              
+00001c25  AES256_IRQHandler             
+00001c25  BusFault_Handler              
+00001c25  COMP_E0_IRQHandler            
+00001c25  COMP_E1_IRQHandler            
+00001c25  CS_IRQHandler                 
+00001c25  DMA_ERR_IRQHandler            
+00001c25  DMA_INT0_IRQHandler           
+00001c25  DMA_INT1_IRQHandler           
+00001c25  DMA_INT2_IRQHandler           
+00001c25  DMA_INT3_IRQHandler           
+00001c25  DebugMon_Handler              
+00001c25  Default_Handler               
+00001c25  EUSCIA1_IRQHandler            
+00001c25  EUSCIA2_IRQHandler            
+00001c25  EUSCIA3_IRQHandler            
+00001c25  EUSCIB1_IRQHandler            
+00001c25  EUSCIB2_IRQHandler            
+00001c25  EUSCIB3_IRQHandler            
+00001c25  FLCTL_IRQHandler              
+00001c25  FPU_IRQHandler                
+00001c25  HardFault_Handler             
+00001c25  MemManage_Handler             
+00001c25  NMI_Handler                   
+00001c25  PCM_IRQHandler                
+00001c25  PORT1_IRQHandler              
+00001c25  PORT2_IRQHandler              
+00001c25  PORT3_IRQHandler              
+00001c25  PORT4_IRQHandler              
+00001c25  PORT5_IRQHandler              
+00001c25  PORT6_IRQHandler              
+00001c25  PSS_IRQHandler                
+00001c25  PendSV_Handler                
+00001c25  RTC_C_IRQHandler              
+00001c25  SVC_Handler                   
+00001c25  SysTick_Handler               
+00001c25  T32_INT1_IRQHandler           
+00001c25  T32_INT2_IRQHandler           
+00001c25  T32_INTC_IRQHandler           
+00001c25  TA0_0_IRQHandler              
+00001c25  TA0_N_IRQHandler              
+00001c25  TA1_0_IRQHandler              
+00001c25  TA1_N_IRQHandler              
+00001c25  TA2_0_IRQHandler              
+00001c25  TA2_N_IRQHandler              
+00001c25  TA3_0_IRQHandler              
+00001c25  TA3_N_IRQHandler              
+00001c25  UsageFault_Handler            
+00001c25  WDT_A_IRQHandler              
+00001c27  _system_pre_init              
+00001c2b  C$$EXIT                       
+00001c2b  abort                         
+00001c6c  __TI_Handler_Table_Base       
+00001c78  __TI_Handler_Table_Limit      
+00001c80  __TI_CINIT_Base               
+00001c90  __TI_CINIT_Limit              
+20000011  TXData                        
+20000014  ball_x                        
+20000018  ball_y                        
+2000001c  ball_x_vel                    
+20000020  ball_y_vel                    
+20000024  SystemCoreClock               
+20000028  RXData                        
+20000029  data_written                  
+2000002a  data_read                     
+20000030  has_new                       
+20000034  new_char                      
+2000fe00  __stack                       
+20010000  __STACK_END                   
+4000480c  WDTCTL_SYM                    
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[162 symbols]
